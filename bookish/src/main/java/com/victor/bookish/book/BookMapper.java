@@ -1,5 +1,6 @@
 package com.victor.bookish.book;
 
+import com.victor.bookish.file.FileUtils;
 import com.victor.bookish.history.BookTransactionHistory;
 import org.springframework.stereotype.Service;
 
@@ -29,8 +30,7 @@ public class BookMapper {
                 .archived(book.isArchived())
                 .sharable(book.isShareable())
                 .owner(book.getOwner().fullName())
-                // todo: implement this later
-//                .cover()
+                .cover(FileUtils.readFileFromLocation(book.getBookCover()))
                 .build();
     }
 

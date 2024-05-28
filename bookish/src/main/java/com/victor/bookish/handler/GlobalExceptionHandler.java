@@ -1,5 +1,6 @@
 package com.victor.bookish.handler;
 
+import com.victor.bookish.exception.OperationNotPermittedException;
 import jakarta.mail.MessagingException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -61,6 +62,17 @@ public class GlobalExceptionHandler {
     ) {
 
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(ExceptionResponse.builder()
+                        .error(exp.getMessage())
+                        .build());
+    }
+
+    @ExceptionHandler(OperationNotPermittedException.class)
+    public ResponseEntity<ExceptionResponse> handleException(
+            OperationNotPermittedException exp
+    ) {
+
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .body(ExceptionResponse.builder()
                         .error(exp.getMessage())
                         .build());

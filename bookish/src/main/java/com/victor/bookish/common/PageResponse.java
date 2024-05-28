@@ -11,7 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 public class PageResponse<T> {
 
-    private List<T> content;
+    private List<T> content; // by converting Pageable to a list
     private int number;
     private int size;
     private long totalElements;

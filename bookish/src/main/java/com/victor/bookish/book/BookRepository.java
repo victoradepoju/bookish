@@ -13,7 +13,7 @@ public interface BookRepository  extends JpaRepository<Book, Integer>, JpaSpecif
             SELECT book
             FROM Book book
             WHERE book.archived = false
-            AND book.sharable = true
+            AND book.shareable = true
             AND book.owner.id != :userId
             """)
     // a JpaRepository method that takes a Pageable as a parameter tells Spring that

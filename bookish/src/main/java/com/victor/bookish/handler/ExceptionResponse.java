@@ -11,7 +11,7 @@ import java.util.Set;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_EMPTY) // Includes only this attribute
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class ExceptionResponse {
 
     private Integer businessErrorCode;
